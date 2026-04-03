@@ -5,7 +5,7 @@ WITH CTE AS(
     DAYOFWEEK(TO_TIMESTAMP(STARTED_AT)) as DAY_STARTED_AT,
     {{get_daytype('STARTED_AT')}} AS DAY_TYPE,
     {{get_season('STARTED_AT')}} as SEASON_OF_YEAR
-FROM {{ source('demo', 'bike') }}
+FROM {{ ref('stg_bike') }}
 where STARTED_AT != 'started_at'
 )
 
