@@ -16,7 +16,7 @@ WITH CTE AS(
         THEN 'SUMMER'
         ELSE 'AUTUMN'
         END AS SEASON_OF_YEAR
-FROM {{ source('demo', 'bike') }}
+FROM {{ ref('stg_bike') }}
 where STARTED_AT != 'started_at'
 )
 
